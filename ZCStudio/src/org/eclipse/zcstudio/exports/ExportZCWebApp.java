@@ -1,4 +1,4 @@
-package zcstuio.exports;
+package org.eclipse.zcstudio.exports;
 
 public class ExportZCWebApp {
 

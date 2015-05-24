@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ZCStudio
-Bundle-SymbolicName: ZCStudio
+Bundle-SymbolicName: ZCStudio; singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: zcstudio.Activator
+Bundle-Activator: org.eclipse.zcstudio.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

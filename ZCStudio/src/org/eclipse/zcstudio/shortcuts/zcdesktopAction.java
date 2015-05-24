@@ -1,4 +1,4 @@
-package zcstudio.shortcuts;
+package org.eclipse.zcstudio.shortcuts;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

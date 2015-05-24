@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+<extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="preference.MyInitializer">
+      </initializer>
+   </extension>
+<extension
+point="org.eclipse.ui.preferencePages">
+
+<page
+id="pagepreference.ZeroCouplage"
+name="ZeroCouplage"
+
+class="preference.MainPreferencePage">
+</page>
+<page
+id="pagepreference.ZeroCouplage.Desktop"
+name="Desktop"
+class="preference.DesktopPreferencePage"
+category="pagepreference.ZeroCouplage">
+</page>
+<page
+id="pagepreference.ZeroCouplage.Web"
+name="Web"
+class="preference.WebPreferencePage"
+category="pagepreference.ZeroCouplage">
+</page>
+<page
+id="pagepreference.ZeroCouplage.Mobile"
+name="Mobile"
+class="preference.MobilePreferencePage"
+category="pagepreference.ZeroCouplage">
+</page>
+</extension>
 <!--Run/ debug as Mobile-->
  <extension point="org.eclipse.debug.ui.launchShortcuts">
   <shortcut
