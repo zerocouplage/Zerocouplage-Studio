@@ -1,4 +1,4 @@
-package org.eclipse.zcstudio;
+package org.zerocouplage.zcstudio;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

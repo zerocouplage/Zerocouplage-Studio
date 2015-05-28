@@ -1,4 +1,4 @@
-package org.eclipse.zcstudio.exports;
+package org.zerocouplage.zcstudio.exports;
 
 public class ExportZCDesktopApp {
 

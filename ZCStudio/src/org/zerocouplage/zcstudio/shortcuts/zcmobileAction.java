@@ -1,4 +1,4 @@
-package org.eclipse.zcstudio.shortcuts;
+package org.zerocouplage.zcstudio.shortcuts;
 
 public class zcmobileAction {
 
