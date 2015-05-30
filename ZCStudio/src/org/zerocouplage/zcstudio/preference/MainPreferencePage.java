@@ -25,10 +25,10 @@ super(GRID);
 
 }
 
-public static final  String ZCSDK="ZCSDK_PATH";
+
 private StringFieldEditor fieldEditor; 
 public void createFieldEditors() {
-addField(new DirectoryFieldEditor(ZCSDK, "&Mobile SDK Location:",
+addField(new DirectoryFieldEditor(PreferenceConstants.ZCSDK, "&ZC SDK Location:",
     getFieldEditorParent()));
 
 }

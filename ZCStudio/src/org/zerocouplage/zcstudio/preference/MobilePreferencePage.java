@@ -22,14 +22,13 @@ public MobilePreferencePage () {
 super(GRID);
 
 }
-public static final  String ZCMobile="ZCMobile_PATH";
-public static final  String IsClientServeur="IsClientServeur";
+
 private StringFieldEditor fieldEditor; 
 
 public void createFieldEditors() {
-addField(new DirectoryFieldEditor(ZCMobile, "&Mobile SDK Location:",
+addField(new DirectoryFieldEditor(PreferenceConstants.ZCMobile, "&Mobile SDK Location:",
     getFieldEditorParent()));
-addField(new BooleanFieldEditor(IsClientServeur,
+addField(new BooleanFieldEditor(PreferenceConstants.IsClientServeurMobile,
         "&Application Client/Serveur", getFieldEditorParent()));
 
 }

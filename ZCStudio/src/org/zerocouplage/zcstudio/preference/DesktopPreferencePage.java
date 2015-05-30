@@ -17,14 +17,13 @@ public DesktopPreferencePage () {
 super(GRID);
 
 }
-public static final  String ZCDesktopDirectory="JDK_PATH";
-public static final  String IsClientServeur="IsClientServeur";
+
 private StringFieldEditor fieldEditor; 
 
 public void createFieldEditors() {
-addField(new DirectoryFieldEditor(ZCDesktopDirectory, "&JDK Location:",
+addField(new DirectoryFieldEditor(PreferenceConstants.ZCDesktop, "&JDK Location:",
     getFieldEditorParent()));
-addField(new BooleanFieldEditor(IsClientServeur,
+addField(new BooleanFieldEditor(PreferenceConstants.IsClientServeurDesktop,
         "&Application Client/Serveur", getFieldEditorParent()));
 }
 //protected void checkState() {

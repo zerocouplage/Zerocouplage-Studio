@@ -19,9 +19,11 @@ public class MyInitializer extends AbstractPreferenceInitializer {
   @Override
   public void initializeDefaultPreferences()  {
 	  IPreferenceStore store = Activator.getDefault().getPreferenceStore();
-store.setDefault(MainPreferencePage.ZCSDK,"C:/ProgramFiles/ZCSDK");
-store.setDefault(WebPreferencePage.ZCWeb,"C:/ProgramFiles/ZCSDK");
-store.setDefault(DesktopPreferencePage.ZCDesktopDirectory,"C:/ProgramFiles/ZCSDK");
-store.setDefault(MobilePreferencePage.ZCMobile,"C:/ProgramFiles/ZCSDK");
+store.setDefault(PreferenceConstants.ZCSDK,"C:/ProgramFiles/ZCSDK");
+store.setDefault(PreferenceConstants.ZCWeb,"C:/ProgramFiles/ZCSDK");
+store.setDefault(PreferenceConstants.ZCDesktop,"C:/ProgramFiles/ZCSDK");
+store.setDefault(PreferenceConstants.ZCMobile,"C:/ProgramFiles/ZCSDK");
+store.setDefault(PreferenceConstants.IsClientServeurMobile,false);
+store.setDefault(PreferenceConstants.IsClientServeurDesktop,false);
 }}
  

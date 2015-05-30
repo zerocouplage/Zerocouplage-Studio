@@ -15,11 +15,11 @@ public WebPreferencePage () {
 super(GRID);
 
 }
-public static final  String ZCWeb="tomcat_PATH";
+
 private StringFieldEditor fieldEditor; 
 
 public void createFieldEditors() {
-addField(new DirectoryFieldEditor(ZCWeb, "&tomcat Location:",
+addField(new DirectoryFieldEditor(PreferenceConstants.ZCWeb, "&tomcat Location:",
     getFieldEditorParent()));
 
 }
