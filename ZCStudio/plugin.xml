@@ -197,4 +197,41 @@ category="pagepreference.ZeroCouplage">
    <extension
          point="org.eclipse.ui.handlers">
    </extension>
+<!-- new project -->
+
+<extension id="wizard"
+    name="new zc project "
+   point="org.eclipse.ui.newWizards">
+  <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
+   <wizard
+         name="ZC project"
+         icon="icons/ZCIcon.png"
+         project="true"
+         category="ZeroCouplage.category1"
+    class="zerocouplage.plugin.zcstudio.premier.actions.NewZCProjectWizard"
+         id="wizard.wizard1">
+        <description>
+               new zerocouplage project
+        </description>
+   </wizard>
+</extension>
+
+
+<extension
+      point="org.eclipse.ui.popupMenus">
+   <objectContribution
+         objectClass="org.eclipse.core.resources.IFolder"
+         id="com.xyz.article.wizards.popup1">
+      <action
+            label="Your New ZC Project"
+            icon="icons/action.gif"
+            class="zerocouplage.plugin.zcstudio.premier.actions.NewZCProjectAction"
+            id="wizard.action1">
+      </action>
+   </objectContribution>
+</extension>
+ 
 </plugin>
