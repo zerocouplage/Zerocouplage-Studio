@@ -8,16 +8,9 @@ import org.eclipse.core.runtime.Path;
 
 
 
-
-/**
- * Model class containing the data for the holiday wizard
- */
-/**
- * Model class containing the data for the holiday wizard
- */
 public class NewZCProjectModel
 {
-	public static final String copyright = "(c) Copyright IBM Corporation 2002.";
+	public static final String copyright = "(c)Copyright 2015 ZCStudio";
 		
 	
 
@@ -32,10 +25,7 @@ public class NewZCProjectModel
 	//Directory to copy
 	Copy cp=new Copy();
 	
-	
-	
-	
-	
+
 
 	// flag is set if a folder called Discounts is selected 
 	// when the wizard is started; a discount is offered in this case

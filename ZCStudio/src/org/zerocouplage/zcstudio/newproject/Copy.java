@@ -16,18 +16,15 @@ import org.eclipse.core.resources.ResourcesPlugin;
 
 
 public  class Copy {
-	//automatisation des chemins !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
-	//get object which represents the workspace 
+
 	IWorkspace workspace = ResourcesPlugin.getWorkspace();
-	 
-	//get location of workspace (java.io.File)
+
 	String workspaceDirectory = workspace.getRoot().getLocation().toFile().toString(); //.replaceAll("\\", "/")
  
 
 	
 	
-	// standard Java I/O means to copy and unzip an existing example project
+	// standard Java I/O means to copy an existing example project
 	public void copy(){
 	   try {  
 		   

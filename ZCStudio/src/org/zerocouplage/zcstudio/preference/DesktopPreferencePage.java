@@ -1,9 +1,10 @@
 package org.zerocouplage.zcstudio.preference;
 
 
-import org.eclipse.jface.preference.*;
-import org.eclipse.jface.util.PropertyChangeEvent;
-
+import org.eclipse.jface.preference.BooleanFieldEditor;
+import org.eclipse.jface.preference.DirectoryFieldEditor;
+import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.zerocouplage.zcstudio.Activator;

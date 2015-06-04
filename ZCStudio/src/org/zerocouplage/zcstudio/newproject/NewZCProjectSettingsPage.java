@@ -1,8 +1,3 @@
-/*
- * Licensed Material - Property of IBM 
- * (C) Copyright IBM Corp. 2002 - All Rights Reserved. 
- */
-
 package org.zerocouplage.zcstudio.newproject;
 
 import org.eclipse.jface.dialogs.IDialogPage;
@@ -20,7 +15,7 @@ import org.eclipse.swt.widgets.Listener;
 
 public class NewZCProjectSettingsPage extends WizardPage implements Listener 
 {
-	public static final String copyright = "(c) Copyright IBM Corporation 2002.";
+	public static final String copyright = "(c) Copyright 2015 ZCStudio";
 	
 	// widgets on this page
 	List exampleProjectList;
@@ -56,22 +51,10 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 		int ncol = 2;
 		gl.numColumns = ncol;
 		composite.setLayout(gl);
-		
-	    // create the widgets. If the appearance of the widget is different from the default, 
-	    // create a GridData for it to set the alignment and define how much space it will occupy
-	    
+	
 	    // flights list
 		Label label = new Label (composite, SWT.NONE);
 		label.setText("Available Templates :");
-
-//		// price button
-//		priceButton = new Button(composite, SWT.PUSH);
-//		priceButton.setText("Get price");
-//		priceButton.addListener(SWT.Selection, this);
-//		gd = new GridData();
-//		gd.horizontalAlignment =GridData.END;
-//		priceButton.setLayoutData(gd);
-
 
 		exampleProjectList = new List(composite, SWT.BORDER | SWT.READ_ONLY  );
 		gd = new GridData(GridData.FILL_HORIZONTAL);
@@ -79,14 +62,6 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 		exampleProjectList.setLayoutData(gd);
 		exampleProjectList.addListener(SWT.Selection, this);
 
-//		// seat choice		
-//		new Label (composite, SWT.NONE).setText("Seat choice:");
-//		seatCombo = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
-//		gd = new GridData(GridData.FILL_HORIZONTAL);
-//		seatCombo.setLayoutData(gd);
-//		seatCombo.setItems(seatChoices);
-//		seatCombo.setText(seatChoices[0]);
-//		seatCombo.addListener(SWT.Selection, this);
 		
 	    // set the composite as the control for this page
 		setControl(composite);		
@@ -106,13 +81,7 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
      */
 	public void handleEvent(Event e)
 	{
-		//if (e.widget == priceButton) {
-//			if (exampleProjectList.getSelectionCount() >0) {
-//				if (((NewZCProjectWizard)getWizard()).model.discounted)
-//					//price *= discountRate;
-//				MessageDialog.openInformation(this.getShell(),"", "Flight price "+ price);
-//			}
-		//}
+
 		setPageComplete(isPageComplete());
 		getWizard().getContainer().updateButtons();
 	}
@@ -123,11 +92,7 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	 */	 
 	public boolean isPageComplete()
 	{
-	//	NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
-////		if (exampleProjectList.getSelectionCount() == 0) { 
-//			wizard.creationCompleted = false;
-//			return false;
-//		}
+	
 		saveDataToModel();
 		return true;
 	}
@@ -135,9 +100,6 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	private void saveDataToModel()
 	{
 		NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
-		//wizard.model.selectedFlight = exampleProjectList.getSelection()[0];
-		//wizard.model.seatChoice = seatCombo.getText();
-		//wizard.model.price = price;
 		wizard.creationCompleted = true;
 	}	
 
@@ -149,14 +111,9 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 		
 		String data = model.projectName;
 		// arbitrary values
-		String myProjectName = data;
-		//String text2 = data +" price £500 - Air France";
-//		if (model.resetFlights) {
-//			//wizard.planeCompleted = false;	
-//			exampleProjectList.removeAll();
-		
+		String myProjectName ="project name :"+ data;
+
 			exampleProjectList.add(myProjectName);
-			//exampleProjectList.add(text2);	
-	//	}
+
 	}
 }

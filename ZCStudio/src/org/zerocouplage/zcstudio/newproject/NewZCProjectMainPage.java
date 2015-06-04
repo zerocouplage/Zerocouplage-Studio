@@ -24,7 +24,7 @@ import org.eclipse.ui.IWorkbench;
 public class NewZCProjectMainPage extends WizardPage implements Listener
 {
 
-	public static final String copyright = "(c) Copyright IBM Corporation 2002.";	
+	public static final String copyright = "(c) Copyright 2015 ZCStudio";	
 	
 	IWorkbench workbench;
 	IStructuredSelection selection;
@@ -46,7 +46,7 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 
 		
 	
-//	final static String[] JRE= {"JavaSE-1.8", "JavaSE-1.7" };
+
 
 
 	
@@ -93,27 +93,12 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 				projectNameText.setLayoutData(gd);
 
 				createLine(composite, ncol);
-				
-	    	    
-//	    // JRE
-//		new Label (composite, SWT.NONE).setText("Use an execution environment JRE:");						
-//		
-//		gd = new GridData();
-//		gd.horizontalAlignment = GridData.BEGINNING;
-//		
-//
-//		executionJRECombo = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
-//		executionJRECombo.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-//		executionJRECombo.setItems(JRE);
-		//executionJRE.setText(executionJRE.getItem());
-
-	
-		createLine(composite, ncol);
+                createLine(composite, ncol);
 
 		
 		
 
-		// Choice of transport		
+		// Choice of JRE		
 		executionJREButton = new Button(composite, SWT.RADIO);
 		executionJREButton.setText("Use an execution environment JRE");
 		gd = new GridData(GridData.FILL_HORIZONTAL);
@@ -134,32 +119,14 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 		executionJREButton.addListener(SWT.Selection, this);
 		
 		projectNameText.addListener(SWT.KeyUp, this);
-	
-		//executionJRECombo.addListener(SWT.Selection, this);
-	
-
-		
-	}
+		}
 
 	
 	/**
 	 * @see Listener#handleEvent(Event)
 	 */
+	
 	public void handleEvent(Event event) {
-	    // Initialize a variable with the no error status
-	 //   Status status = new Status(IStatus.OK, "not_used", 0, "", null);
-	   
-	 
-
-	    // If the event is triggered by any of the date fields  set
-	    // corresponding status variable to the right value
-//	    if  (event.widget == executionJRECombo) {
-//			
-//    status = new Status(IStatus.ERROR, "not_used", 0,"Return date cannot be before the travel date", null);	                
-//	       
-//			
-//	    }
-	    // update the state of buttons
 	  
 		getWizard().getContainer().updateButtons();
 	}
@@ -179,8 +146,7 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 			page.onEnterPage();
 			return page;
 		}
-	    // Returns the next page depending on the selected button
-		
+
 		return null;
 	}
 
@@ -208,11 +174,6 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 		NewZCProjectModel model = wizard.model;
 
 		
-//		if ((model.projectNameText != null))
-//		    if (
-		//model.projectName = projectNameText.getText();   //equals) )
-	    		//model.resetFlights = false;
-		
 	    // Saves the user choices in the model
 		model.projectName = projectNameText.getText();
 		model.executionJRE = executionJREButton.getSelection();
@@ -221,30 +182,6 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 	/**
 	 * Applies the status to the status line of a dialog page.
 	 */
-//	private void applyToStatusLine(IStatus status) {
-//		String message= status.getMessage();
-//		if (message.length() == 0) message= null;
-//		switch (status.getSeverity()) {
-//			case IStatus.OK:
-//				setErrorMessage(null);
-//				setMessage(message);
-//				break;
-//			case IStatus.WARNING:
-//				setErrorMessage(null);
-//				setMessage(message, WizardPage.WARNING);
-//				break;				
-//			case IStatus.INFO:
-//				setErrorMessage(null);
-//				setMessage(message, WizardPage.INFORMATION);
-//				break;			
-//			default:
-//				setErrorMessage(message);
-//				setMessage(null);
-//				break;		
-//		}
-//	}	
-	
-
 
 	
 	private static boolean isTextNonEmpty(Text t)
@@ -263,7 +200,7 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 	}	
 
 	/**
-	 * @return true iff all fields of the return dates are set
+	 * @return true if all fields of the return dates are set
 	 */
 
 	

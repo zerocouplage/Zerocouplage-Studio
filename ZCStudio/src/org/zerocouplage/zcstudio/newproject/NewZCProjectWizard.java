@@ -16,7 +16,7 @@ import org.eclipse.ui.IWorkbenchWizard;
  */
 public class NewZCProjectWizard extends Wizard implements INewWizard
 {
-	public static final String copyright = "(c) Copyright IBM Corporation 2002.";	
+	public static final String copyright = "(c) Copyright 2015 ZCStudio";	
 	// wizard pages
 	NewZCProjectMainPage newZCProjectPage;
 	NewZCProjectSettingsPage settingsPage;
@@ -75,16 +75,12 @@ public class NewZCProjectWizard extends Wizard implements INewWizard
 		// cannot complet the wizard from the first page
 		if (this.getContainer().getCurrentPage() == newZCProjectPage) 
 			return false;
-		// based on the type of transport return the right flag			
-		//if (model.usePlane) return creationCompleted;
 		return true;  //return false;
 	}
 	
 	public boolean performFinish() 
 	{
-		//String summary = model.toString();
-//		MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), 
-//			"Holiday info", summary);
+
 		try {
 			model.creatEmptyProject();
 		} catch (CoreException e) {

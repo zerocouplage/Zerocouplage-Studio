@@ -17,7 +17,7 @@ import org.eclipse.ui.IWorkbenchPart;
 public class NewZCProjectAction implements IObjectActionDelegate 
 {
 
-	public static final String copyright = "(c) Copyright IBM Corporation 2002.";
+	public static final String copyright = "(c) Copyright 2015 ZCStudio";
 
 	IWorkbenchPart part;
 	ISelection selection;
