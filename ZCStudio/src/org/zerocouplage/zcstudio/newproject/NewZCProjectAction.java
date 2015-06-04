@@ -1,8 +1,6 @@
-/*
- * Licensed Material - Property of IBM 
- * (C) Copyright IBM Corp. 2002 - All Rights Reserved. 
- */
 package org.zerocouplage.zcstudio.newproject;
+
+
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;

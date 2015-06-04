@@ -1,16 +1,15 @@
-/*
- * Licensed Material - Property of IBM 
- * (C) Copyright IBM Corp. 2002 - All Rights Reserved. 
- */
- 
 package org.zerocouplage.zcstudio.newproject;
-import org.eclipse.core.resources.IFolder;
+
+
+
+
+import org.eclipse.core.resources.IFolder; 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWizard;
 
 /**
  * Wizard class
@@ -73,19 +72,19 @@ public class NewZCProjectWizard extends Wizard implements INewWizard
 
 	public boolean canFinish()
 	{
-		// cannot completr the wizard from the first page
+		// cannot complet the wizard from the first page
 		if (this.getContainer().getCurrentPage() == newZCProjectPage) 
 			return false;
 		// based on the type of transport return the right flag			
-		if (model.usePlane) return creationCompleted;
-		return false;
+		//if (model.usePlane) return creationCompleted;
+		return true;  //return false;
 	}
 	
 	public boolean performFinish() 
 	{
-		String summary = model.toString();
-		MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), 
-			"Holiday info", summary);
+		//String summary = model.toString();
+//		MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), 
+//			"Holiday info", summary);
 		try {
 			model.creatEmptyProject();
 		} catch (CoreException e) {

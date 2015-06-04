@@ -5,36 +5,30 @@
 
 package org.zerocouplage.zcstudio.newproject;
 
-import org.eclipse.jface.dialogs.IDialogPage; 
-import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Listener;
 
-/**
- * Wizard page shown when the user has chosen plane as means of 
- * transport
- */
+
 
 public class NewZCProjectSettingsPage extends WizardPage implements Listener 
 {
 	public static final String copyright = "(c) Copyright IBM Corporation 2002.";
 	
 	// widgets on this page
-	List flightsList;
-	Combo seatCombo;	
-	Button priceButton;
+	List exampleProjectList;
+	//Combo seatCombo;	
+	//Button priceButton;
 
 	final static float standardPrice = 100;
-	final static String[] seatChoices = {"Window", "Aisle", "Center"};
+	//final static String[] seatChoices = {"Window", "Aisle", "Center"};
 	final static double discountRate = 0.9;
 
 	float price = standardPrice;
@@ -44,8 +38,8 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	 */
 	protected NewZCProjectSettingsPage(String arg0) {
 		super(arg0);
-		setTitle("Travel by plane");
-		setDescription("Specify flight and seat choice");
+		setTitle("Templates");
+		setDescription("Select one of the available templates to generate a fully-functioning ZC project");
 	}
 
 	/**
@@ -68,31 +62,31 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	    
 	    // flights list
 		Label label = new Label (composite, SWT.NONE);
-		label.setText("Flights:");
+		label.setText("Available Templates :");
 
-		// price button
-		priceButton = new Button(composite, SWT.PUSH);
-		priceButton.setText("Get price");
-		priceButton.addListener(SWT.Selection, this);
-		gd = new GridData();
-		gd.horizontalAlignment =GridData.END;
-		priceButton.setLayoutData(gd);
+//		// price button
+//		priceButton = new Button(composite, SWT.PUSH);
+//		priceButton.setText("Get price");
+//		priceButton.addListener(SWT.Selection, this);
+//		gd = new GridData();
+//		gd.horizontalAlignment =GridData.END;
+//		priceButton.setLayoutData(gd);
 
 
-		flightsList = new List(composite, SWT.BORDER | SWT.READ_ONLY  );
+		exampleProjectList = new List(composite, SWT.BORDER | SWT.READ_ONLY  );
 		gd = new GridData(GridData.FILL_HORIZONTAL);
 		gd.horizontalSpan =ncol;
-		flightsList.setLayoutData(gd);
-		flightsList.addListener(SWT.Selection, this);
+		exampleProjectList.setLayoutData(gd);
+		exampleProjectList.addListener(SWT.Selection, this);
 
-		// seat choice		
-		new Label (composite, SWT.NONE).setText("Seat choice:");
-		seatCombo = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
-		gd = new GridData(GridData.FILL_HORIZONTAL);
-		seatCombo.setLayoutData(gd);
-		seatCombo.setItems(seatChoices);
-		seatCombo.setText(seatChoices[0]);
-		seatCombo.addListener(SWT.Selection, this);
+//		// seat choice		
+//		new Label (composite, SWT.NONE).setText("Seat choice:");
+//		seatCombo = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
+//		gd = new GridData(GridData.FILL_HORIZONTAL);
+//		seatCombo.setLayoutData(gd);
+//		seatCombo.setItems(seatChoices);
+//		seatCombo.setText(seatChoices[0]);
+//		seatCombo.addListener(SWT.Selection, this);
 		
 	    // set the composite as the control for this page
 		setControl(composite);		
@@ -112,13 +106,13 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
      */
 	public void handleEvent(Event e)
 	{
-		if (e.widget == priceButton) {
-			if (flightsList.getSelectionCount() >0) {
-				if (((NewZCProjectWizard)getWizard()).model.discounted)
-					price *= discountRate;
-				MessageDialog.openInformation(this.getShell(),"", "Flight price "+ price);
-			}
-		}
+		//if (e.widget == priceButton) {
+//			if (exampleProjectList.getSelectionCount() >0) {
+//				if (((NewZCProjectWizard)getWizard()).model.discounted)
+//					//price *= discountRate;
+//				MessageDialog.openInformation(this.getShell(),"", "Flight price "+ price);
+//			}
+		//}
 		setPageComplete(isPageComplete());
 		getWizard().getContainer().updateButtons();
 	}
@@ -129,11 +123,11 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	 */	 
 	public boolean isPageComplete()
 	{
-		NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
-		if (flightsList.getSelectionCount() == 0) { 
-			wizard.creationCompleted = false;
-			return false;
-		}
+	//	NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
+////		if (exampleProjectList.getSelectionCount() == 0) { 
+//			wizard.creationCompleted = false;
+//			return false;
+//		}
 		saveDataToModel();
 		return true;
 	}
@@ -141,9 +135,9 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	private void saveDataToModel()
 	{
 		NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
-		wizard.model.selectedFlight = flightsList.getSelection()[0];
-		wizard.model.seatChoice = seatCombo.getText();
-		wizard.model.price = price;
+		//wizard.model.selectedFlight = exampleProjectList.getSelection()[0];
+		//wizard.model.seatChoice = seatCombo.getText();
+		//wizard.model.price = price;
 		wizard.creationCompleted = true;
 	}	
 
@@ -153,15 +147,16 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	    NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
 		NewZCProjectModel model = wizard.model;
 		
-		String data = model.departure;
+		String data = model.projectName;
 		// arbitrary values
-		String text1 = data +" price £400 - British Airways";
-		String text2 = data +" price £500 - Air France";
-		if (model.resetFlights) {
-			//wizard.planeCompleted = false;	
-			flightsList.removeAll();
-			flightsList.add(text1);
-			flightsList.add(text2);	
-		}
+		String myProjectName = data;
+		//String text2 = data +" price £500 - Air France";
+//		if (model.resetFlights) {
+//			//wizard.planeCompleted = false;	
+//			exampleProjectList.removeAll();
+		
+			exampleProjectList.add(myProjectName);
+			//exampleProjectList.add(text2);	
+	//	}
 	}
 }
