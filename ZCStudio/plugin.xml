@@ -211,7 +211,7 @@ category="pagepreference.ZeroCouplage">
          icon="icons/ZCIcon.png"
          project="true"
          category="ZeroCouplage.category1"
-    class="zerocouplage.plugin.zcstudio.premier.actions.NewZCProjectWizard"
+    class="org.zerocouplage.zcstudio.newproject.NewZCProjectWizard"
          id="wizard.wizard1">
         <description>
                new zerocouplage project
@@ -228,7 +228,7 @@ category="pagepreference.ZeroCouplage">
       <action
             label="Your New ZC Project"
             icon="icons/action.gif"
-            class="zerocouplage.plugin.zcstudio.premier.actions.NewZCProjectAction"
+            class="org.zerocouplage.zcstudio.newproject.NewZCProjectAction"
             id="wizard.action1">
       </action>
    </objectContribution>
