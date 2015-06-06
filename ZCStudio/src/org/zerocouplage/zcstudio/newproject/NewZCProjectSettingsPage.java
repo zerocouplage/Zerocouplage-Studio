@@ -1,6 +1,6 @@
 package org.zerocouplage.zcstudio.newproject;
 
-import org.eclipse.jface.dialogs.IDialogPage;
+import org.eclipse.jface.dialogs.IDialogPage; 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;

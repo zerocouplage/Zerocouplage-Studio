@@ -3,7 +3,9 @@ package org.zerocouplage.zcstudio.newproject;
 
 
 
-import org.eclipse.core.resources.IFolder; 
+import java.io.IOException;
+
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -80,10 +82,16 @@ public class NewZCProjectWizard extends Wizard implements INewWizard
 	
 	public boolean performFinish() 
 	{
+//		String summary = model.toString();
+//		MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), 
+//		"path rechérché", summary);
 
 		try {
 			model.creatEmptyProject();
 		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

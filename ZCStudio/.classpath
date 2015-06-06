@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="lib"/>
+	<classpathentry kind="lib" path="C:/Users/Doaae K/Downloads/org.eclipse.ui.ide.source_3.7.0.I20110519-0100.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

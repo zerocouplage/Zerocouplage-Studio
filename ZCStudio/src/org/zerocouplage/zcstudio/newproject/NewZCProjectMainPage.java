@@ -173,7 +173,11 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 		NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
 		NewZCProjectModel model = wizard.model;
 
-		
+//		IProject[] projects = root.getProjects();
+//		// Loop over all projects
+//		for (IProject project : projects) {
+//			System.out.println(project.getName());
+//		}
 	    // Saves the user choices in the model
 		model.projectName = projectNameText.getText();
 		model.executionJRE = executionJREButton.getSelection();
