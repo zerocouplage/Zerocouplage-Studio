@@ -23,7 +23,7 @@ public class NewZCProjectModel
 	
 	// choice of JRE
 	protected boolean executionJRE;
-Copy cp=new Copy();
+GetProjectLocation cp=new GetProjectLocation();
 
 	// flag is set if a folder called Discounts is selected 
 	// when the wizard is started; a discount is offered in this case
