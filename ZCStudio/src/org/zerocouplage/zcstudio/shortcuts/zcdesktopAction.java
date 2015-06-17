@@ -13,8 +13,11 @@ import org.eclipse.ui.handlers.HandlerUtil;
 public class zcdesktopAction implements ILaunchShortcut {
 
 	public zcdesktopAction()  {
+
+		System.out.println("Desktop App");
 		// TODO Auto-generated constructor stub
 	}
+
 
 	@Override
 	public void launch(ISelection arg0, String arg1) {

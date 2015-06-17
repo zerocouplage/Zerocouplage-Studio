@@ -155,6 +155,10 @@ category="pagepreference.ZeroCouplage">
 <!--Export as Mobile-->
 <extension 
        point="org.eclipse.ui.exportWizards"> 
+       <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
       <wizard 
          id="org.zerocouplage.zcstudio.ExportZCMobileApp" 
          name="ZCMobile Application" 
@@ -169,6 +173,10 @@ category="pagepreference.ZeroCouplage">
 <!--Export as Web-->
    <extension 
        point="org.eclipse.ui.exportWizards"> 
+       <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
       <wizard 
          id="org.zerocouplage.zcstudio.ExportZCWebApp" 
          name="ZCWeb Application" 
@@ -183,10 +191,15 @@ category="pagepreference.ZeroCouplage">
 <!--Export as Desktop-->
    <extension 
        point="org.eclipse.ui.exportWizards"> 
+       <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
       <wizard 
          id="org.zerocouplage.zcstudio.ExportZCDesktopApp" 
          name="ZCDesktop Application" 
          class="org.zerocouplage.zcstudio.exports.ExportZCDesktopApp" 
+        
          icon="icons/ZCIcon.png"> 
          <description> 
             A simple engine that exports Desktop project 
@@ -211,7 +224,7 @@ category="pagepreference.ZeroCouplage">
          icon="icons/ZCIcon.png"
          project="true"
          category="ZeroCouplage.category1"
-    class="org.zerocouplage.zcstudio.newproject.NewZCProjectWizard"
+   		 class="org.zerocouplage.zcstudio.newproject.NewZCProjectWizard"
          id="wizard.wizard1">
         <description>
                new zerocouplage project
