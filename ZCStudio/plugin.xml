@@ -42,7 +42,7 @@ category="pagepreference.ZeroCouplage">
     icon="icons/ZCIcon.png"
     helpContextId="org.eclipse.jdt.debug.ui.shortcut_local_java_application"
     modes="run, debug"
-    class="zcstudio4.shortcuts.zcmobileAction"
+    class="org.zerocouplage.zcstudio.shortcuts.zcmobileAction"
     description="Launch a local Java application"
     id="org.eclipse.jdt.debug.ui.localJavaShortcut">
     <description
@@ -81,7 +81,7 @@ category="pagepreference.ZeroCouplage">
     icon="icons/ZCIcon.png"
     helpContextId="org.eclipse.jdt.debug.ui.shortcut_local_java_application"
     modes="run, debug"
-    class="zcstudio4.shortcuts.zcwebAction"
+    class="org.zerocouplage.zcstudio.shortcuts.zcwebAction"
     description="Launch a local Java application"
     id="org.eclipse.jdt.debug.ui.localJavaShortcut">
     <description
@@ -120,7 +120,7 @@ category="pagepreference.ZeroCouplage">
     icon="icons/ZCIcon.png"
     helpContextId="org.eclipse.jdt.debug.ui.shortcut_local_java_application"
     modes="run, debug"
-    class="zcstudio4.shortcuts.zcdesktopAction"
+    class="org.zerocouplage.zcstudio.shortcuts.zcdesktopAction"
     description="Launch a local Java application"
     id="org.eclipse.jdt.debug.ui.localJavaShortcut">
     <description
@@ -156,9 +156,9 @@ category="pagepreference.ZeroCouplage">
 <extension 
        point="org.eclipse.ui.exportWizards"> 
       <wizard 
-         id="zcstudio4.ExportZCMobileApp" 
+         id="org.zerocouplage.zcstudio.ExportZCMobileApp" 
          name="ZCMobile Application" 
-         class="zcstudio4.exports.ExportZCMobileApp" 
+         class="org.zerocouplage.zcstudio.exports.ExportZCMobileApp" 
          icon="icons/ZCIcon.png"> 
          <description> 
             A simple engine that exports ZCMobile project 
@@ -170,9 +170,9 @@ category="pagepreference.ZeroCouplage">
    <extension 
        point="org.eclipse.ui.exportWizards"> 
       <wizard 
-         id="zcstudio4.ExportZCWebApp" 
+         id="org.zerocouplage.zcstudio.ExportZCWebApp" 
          name="ZCWeb Application" 
-         class="zcstudio4.exports.ExportZCWebApp" 
+         class="org.zerocouplage.zcstudio.exports.ExportZCWebApp" 
          icon="icons/ZCIcon.png"> 
          <description> 
             A simple engine that exports Web project 
@@ -184,9 +184,9 @@ category="pagepreference.ZeroCouplage">
    <extension 
        point="org.eclipse.ui.exportWizards"> 
       <wizard 
-         id="zcstudio4.ExportZCDesktopApp" 
+         id="org.zerocouplage.zcstudio.ExportZCDesktopApp" 
          name="ZCDesktop Application" 
-         class="zcstudio4.exports.ExportZCDesktopApp" 
+         class="org.zerocouplage.zcstudio.exports.ExportZCDesktopApp" 
          icon="icons/ZCIcon.png"> 
          <description> 
             A simple engine that exports Desktop project 
