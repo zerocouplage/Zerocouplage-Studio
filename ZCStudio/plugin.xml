@@ -207,9 +207,7 @@ category="pagepreference.ZeroCouplage">
          <selection class="org.eclipse.core.resources.IProject"/> 
       </wizard> 
    </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-   </extension>
+
 <!-- new project -->
 
 <extension id="wizard"
