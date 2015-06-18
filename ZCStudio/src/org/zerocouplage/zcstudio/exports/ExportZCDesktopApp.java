@@ -2,12 +2,12 @@ package org.zerocouplage.zcstudio.exports;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
 
-public class ExportZCDesktopApp extends Wizard implements INewWizard {
+public class ExportZCDesktopApp extends Wizard implements  IWizard {
 	
 	public static final String copyright = "(c) Copyright 2015 ZCStudio";	
 	// wizard pages
@@ -18,7 +18,7 @@ public class ExportZCDesktopApp extends Wizard implements INewWizard {
 	protected IWorkbench workbench;
 
 	public ExportZCDesktopApp() {
-		// TODO Auto-generated constructor stub
+		System.out.println("Ok EXPORT!");
 	}
 	
 	public void addPages()
@@ -29,7 +29,6 @@ public class ExportZCDesktopApp extends Wizard implements INewWizard {
 		
 	}
 
-	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
