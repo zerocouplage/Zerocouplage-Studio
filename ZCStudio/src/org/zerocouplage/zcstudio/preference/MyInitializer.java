@@ -14,7 +14,7 @@ public class MyInitializer extends AbstractPreferenceInitializer {
 
   public MyInitializer() {
   }
-  //IPreferenceStore store = Plugin.getPlugin().getPreferenceStore();
+  
 
   @Override
   public void initializeDefaultPreferences()  {
