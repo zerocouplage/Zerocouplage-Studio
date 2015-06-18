@@ -4,10 +4,11 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 
 
-public class ExportZCDesktopApp extends Wizard implements  IWizard {
+public class ExportZCDesktopApp extends Wizard implements  IExportWizard {
 	
 	public static final String copyright = "(c) Copyright 2015 ZCStudio";	
 	// wizard pages
