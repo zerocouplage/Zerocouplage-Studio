@@ -244,5 +244,35 @@ category="pagepreference.ZeroCouplage">
       </action>
    </objectContribution>
 </extension>
+<extension
+      point="org.eclipse.jdt.core.classpathContainerInitializer">
+</extension>
+<extension
+      point="org.eclipse.jdt.core.classpathContainerInitializer">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.classpathProviders">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.vmInstallTypes">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.vmInstalls">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.vmConnectors">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.runtimeClasspathEntryResolvers">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.runtimeClasspathEntries">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.executionEnvironments">
+</extension>
+<extension
+      point="org.eclipse.jdt.launching.classpathProviders">
+</extension>
  
 </plugin>

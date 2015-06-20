@@ -23,13 +23,13 @@ import org.zerocouplage.zcstudio.preference.PreferenceConstants;
 
 public  class GetProjectLocation implements IHandler {
 	 // get values of preferences 
-	IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-	String ZCSDK= prefStore.getString(PreferenceConstants.ZCSDK);
-	Boolean IsClientServeurMobile=prefStore.getBoolean(PreferenceConstants.IsClientServeurMobile);
-	Boolean IsClientServeurDesktop=prefStore.getBoolean(PreferenceConstants.IsClientServeurDesktop);
-	String JDK= prefStore.getString(PreferenceConstants.ZCDesktop);
-	String ZCAndroid= prefStore.getString(PreferenceConstants.ZCMobile);
-	String tomcat= prefStore.getString(PreferenceConstants.ZCWeb);
+	public static IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
+	public static String ZCSDK= prefStore.getString(PreferenceConstants.ZCSDK);
+	public static Boolean IsClientServeurMobile=prefStore.getBoolean(PreferenceConstants.IsClientServeurMobile);
+	public static Boolean IsClientServeurDesktop=prefStore.getBoolean(PreferenceConstants.IsClientServeurDesktop);
+	public static String JDK= prefStore.getString(PreferenceConstants.ZCDesktop);
+	public static String ZCAndroid= prefStore.getString(PreferenceConstants.ZCMobile);
+	public static String tomcat= prefStore.getString(PreferenceConstants.ZCWeb);
 
 
 
