@@ -125,6 +125,7 @@ public class LaunchWebApp  {
         System.out.println("-----------------------------");
          
         // Running specified target of ant script
+        executeAntTask("src/org/zerocouplage/zcstudio/webLauncherAction/build.xml", "st	rt-tomcat");
         executeAntTask("src/org/zerocouplage/zcstudio/webLauncherAction/build.xml", "war");
         executeAntTask("src/org/zerocouplage/zcstudio/webLauncherAction/build.xml", "undepoly");
         executeAntTask("src/org/zerocouplage/zcstudio/webLauncherAction/build.xml", "remove");
