@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="WebLauncher" default="war" basedir=".">
+	<property name="project.name" value="" />
+	<property name="tomcat" value="" />
+	<property name="tomcat.deployment" value="${tomcat}/webapps" />
+	<property name="tomcat.bin" value="${tomcat}/bin" />
+	<property name="tomcat.lib" value="${tomcat}/lib" />
+	<property name="url" value="http://localhost:8080/manager" />
+
+<!-- username and password to access into tomcat manager-->
+	<property name="username" value="root" />
+
+	<property name="password" value="root" />
+
+<!--catalina-ant.jar contiens classes that are used to communicate with Tomcat-->
+
+	<path id="catalina-ant-classpath">
+		<fileset dir="${tomcat.lib}">
+			<include name="catalina-ant.jar" />
+		</fileset>
+	</path>
+
+<!-- this target will create the war of the project to deploy-->
+	<target name="war" >
+		<war warfile="${project.name}.war" webxml="${project.name}/WebContent/WEB-INF/web.xml">
+			<fileset dir="${project.name}/WebContent/">
+				<include name="**/*.*" />
+			</fileset>
+			<classes dir="${project.name}/build/classes" />
+		</war>
+		<antcall target="deploy" />
+	</target>
+
+
+
+
+<!-- give names to tasks given in catalina-ant.jar-->
+
+	<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="catalina-ant-classpath" />
+
+	<taskdef name="list" classname="org.apache.catalina.ant.ListTask" classpathref="catalina-ant-classpath" />
+
+	<taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="catalina-ant-classpath" />
+
+
+
+
+	<taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask" classpathref="catalina-ant-classpath" />
+
+	<taskdef name="start" classname="org.apache.catalina.ant.StartTask" classpathref="catalina-ant-classpath" />
+
+	<taskdef name="stop" classname="org.apache.catalina.ant.StopTask" classpathref="catalina-ant-classpath" />
+
+	<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="catalina-ant-classpath" />
+
+	<taskdef name="remove" classname="org.apache.catalina.ant.RemoveTask" classpathref="catalina-ant-classpath" />
+
+<!-- the war deployment -->
+
+
+	<target name="deploy">
+		<copy file="${project.name}.war" todir="${tomcat.deployment}" />
+		<antcall target="start" />
+	</target>
+
+
+<!-- web app reload-->
+
+	<target name="reload" description="Reload web application">
+
+		<reload url="${url}" username="${username}" password="${password}" path="/${project.name}" />
+		<antcall target="start" />
+	</target>
+
+<!-- undeploy app-->
+
+	<target name="undeploy" description="Remove web application">
+
+		<undeploy url="${url}" username="${username}" password="${password}" path="/${project.name}" />
+
+	</target>
+
+
+
+	<target name="start">
+
+		<start url="${url}" username="${username}" password="${password}" path="/ZCAppsDemo" />
+		<antcall target="launch" />
+	</target>
+	
+	
+	<!-- launch the web app-->
+	<target name="launch">
+		<exec executable="cmd">
+			<arg value="/c" />
+
+			<arg value="start http://localhost:8080/${project.name}" />
+
+		</exec>
+	</target>
+
+
+
+	<target name="stop">
+
+		<sshexec host="${host}" username="${username}" password="${password}" command=". /etc/profile; ${tomcat}/bin/catalina.sh stop" trust="true" />
+
+	</target>
+
+
+
+	<target name="remove" description="Remove web application">
+
+		<remove url="${url}" username="${username}" password="${password}" path="${project.name}" />
+
+	</target>
+
+	<!-- start tomcat-->
+
+	<target name="tomcat-start">
+
+		<java jar="${tomcat}/bin/bootstrap.jar" fork="true">
+
+			<jvmarg value="-Dcatalina.home=${tomcat}" />
+
+		</java>
+
+	</target>
+
+
+<!-- stop tomcat-->
+	<target name="tomcat-stop">
+
+		<java jar="${tomcat}/bin/bootstrap.jar" fork="true">
+
+			<jvmarg value="-Dcatalina.home=${tomcat}" />
+
+			<arg line="stop" />
+
+		</java>
+
+	</target>
+
+
+</project>
