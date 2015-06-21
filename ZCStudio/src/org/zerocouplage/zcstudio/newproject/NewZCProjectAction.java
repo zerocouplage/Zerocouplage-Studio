@@ -1,7 +1,5 @@
 package org.zerocouplage.zcstudio.newproject;
 
-
-
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -10,12 +8,11 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
 /**
- * Class associated with the popupMenu for the folder
- * Start the wizard in the run method
+ * Class associated with the popupMenu for the folder Start the wizard in the
+ * run method
  */
 
-public class NewZCProjectAction implements IObjectActionDelegate 
-{
+public class NewZCProjectAction implements IObjectActionDelegate {
 
 	public static final String copyright = "(c) Copyright 2015 ZCStudio";
 
@@ -26,23 +23,24 @@ public class NewZCProjectAction implements IObjectActionDelegate
 	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
 	 */
 	public void setActivePart(IAction action, IWorkbenchPart part) {
-			this.part = part;
+		this.part = part;
 	}
 
 	/**
-	 * @see IActionDelegate#run(IAction)
-	 * Instantiates the wizard and opens it in the wizard container
+	 * @see IActionDelegate#run(IAction) Instantiates the wizard and opens it in
+	 *      the wizard container
 	 */
 	public void run(IAction action) {
-		
+
 		// Instantiates and initializes the wizard
 		NewZCProjectWizard wizard = new NewZCProjectWizard();
 		if ((selection instanceof IStructuredSelection) || (selection == null))
-		wizard.init(part.getSite().getWorkbenchWindow().getWorkbench(), 
-			(IStructuredSelection)selection);
-			
+			wizard.init(part.getSite().getWorkbenchWindow().getWorkbench(),
+					(IStructuredSelection) selection);
+
 		// Instantiates the wizard container with the wizard and opens it
-		WizardDialog dialog = new WizardDialog( part.getSite().getShell(), wizard);
+		WizardDialog dialog = new WizardDialog(part.getSite().getShell(),
+				wizard);
 		dialog.create();
 		dialog.open();
 	}

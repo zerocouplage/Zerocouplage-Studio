@@ -33,15 +33,10 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 	IStructuredSelection selection;
 	
 	// widgets on this page 
-	
-
 
 	Text projectNameText;
-	Text PackageText;
-	
-
-
-	Button executionJREButton;
+	Text packageNameText;
+    Button executionJREButton;
 
 	
 	
@@ -49,14 +44,10 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 	// holds an error if project name is invalid
 	public static IStatus projectNameStatus;
 	public static Status status;
-	 private Pattern pattern;
-	  private Matcher matcher;
-		
-	
+	 private Pattern patternName;
+	  private Matcher matcherName;
 
 
-
-	
 	/**
 	 * Constructor for ZCNewProjectMainPage.
 	 */
@@ -86,13 +77,15 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 		composite.setLayout(gl);
 
 	
-		// Project Name				
+		// Package Name				
 				new Label (composite, SWT.NONE).setText("Package:");				
-				PackageText = new Text(composite, SWT.BORDER);
+				packageNameText = new Text(composite, SWT.BORDER);
 				gd = new GridData(GridData.FILL_HORIZONTAL);
+				packageNameText.setText("ce champ sera développé aux prochaines versions");
+				packageNameText.setEnabled(false);
 				gd.horizontalSpan = ncol - 1;
-				PackageText.setLayoutData(gd);
-				
+				packageNameText.setLayoutData(gd);
+		// Project Name			
 				new Label (composite, SWT.NONE).setText("Project Name:");				
 				projectNameText = new Text(composite, SWT.BORDER);
 				gd = new GridData(GridData.FILL_HORIZONTAL);
@@ -135,18 +128,22 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 	
 	public void handleEvent(Event event) {
 	
-	    pattern = Pattern.compile("^[^.][a-zA-Z0-9_-]{1,15}[^.]$");
-	    matcher = pattern.matcher(projectNameText.getText());
+	    
 		  
-	 // Initialize a variable with the no error status
+	 // Initialize  variables with the no error status
 	    status = new Status(IStatus.OK, "not_used", 0, "", null);
-	  
-	    if (!matcher.matches()) {
+	    
+	   //verify project Name
+	    patternName = Pattern.compile("^[^.-_][a-zA-Z0-9_-]{1,15}$");
+	    matcherName = patternName.matcher(projectNameText.getText());
+	    if (!matcherName.matches()) {
 	        
 	            status = new Status(IStatus.ERROR, "not_used", 0, 
 	                "Erreur : invalid nom de projet", null);        
 	            projectNameStatus = status;
+	            
 	    }
+
 	    projectNameStatus = status;
 	    // Show the most serious error
 	    applyToStatusLine(findMostSevere());
@@ -229,11 +226,7 @@ public class NewZCProjectMainPage extends WizardPage implements Listener
 		NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
 		NewZCProjectModel model = wizard.model;
 
-//		IProject[] projects = root.getProjects();
-//		// Loop over all projects
-//		for (IProject project : projects) {
-//			System.out.println(project.getName());
-//		}
+
 	    // Saves the user choices in the model
 		model.projectName = projectNameText.getText();
 		model.executionJRE = executionJREButton.getSelection();
