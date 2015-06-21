@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="ZeroCouplage_Desktop_run" default="supprimer" basedir=".">
+
+	
+	<!-- Chemin à modifier pour le test de votre  projet (à ecraser via la classe Run-As de Java-->
+	<property name="project.to.build" value="ZCAppsDemo"/>
+	
+	<!-- Indiquer ou se trouve le dossier lib de ton  projet-->
+	
+	<property name="lib.of.project.to.build" value="${project.to.build}/WebContent/WEB-INF/lib"/>
+
+	
+	<path id="master-classpath">
+		<fileset dir="${lib.of.project.to.build}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<path id="path-project-jar">
+		<pathelement location="${build.of.project.jar}"/>
+	</path>
+	
+	<target name="init-all-properties">
+		<echo>Init properties of the project  : ${project.to.build}</echo>
+		<getProjectName text="${project.to.build}" property="name.project.to.build" />
+		<echo>Project name  :  ${name.project.to.build}</echo>
+		<propertyreset name="tmps.of.build" value="${basedir}/tmps/${name.project.to.build}"/>
+		<echo>Temps folder : ${tmps.of.build}</echo>
+		<propertyreset name="tmps.of.build.classes" value="${tmps.of.build}/classesTmp"/>
+		<propertyreset name="build.of.project.jar" value="${tmps.of.build}/${name.project.to.build}.jar"/>
+		<echo>Jar to build : ${build.of.project.jar}</echo>
+	</target>
+		
+	<target name="init" depends="init-all-properties">
+		<mkdir dir="${tmps.of.build}" />
+		<mkdir dir="${tmps.of.build.classes}" />
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac  srcdir="${project.to.build}/src/" destdir="${tmps.of.build.classes}" fork="true" >
+			<classpath refid="master-classpath"/>
+		</javac>
+		 <copy todir="${tmps.of.build.classes}/ressources">
+		    <fileset dir="${project.to.build}/src/ressources"/>
+		  </copy>
+	</target>
+	
+	<target name="archiver" depends="compile">
+		<echo message="target archiver"/>
+		<jar update="true" destfile="${build.of.project.jar}" basedir="${tmps.of.build.classes}" >
+		</jar>
+	</target>
+
+	<target name="executer" depends="archiver">
+		<echo message="target executer"/>
+		<java  fork="true" classname="org.zerocouplage.main.ZCMain" >
+			<classpath location="${build.of.project.jar}"/>
+			<classpath refid="master-classpath"/>
+		</java>
+	</target>
+
+	<target name="supprimer" depends ="executer" description="supression">
+		 <delete dir="${tmps.of.build}" /> 
+	</target>
+	
+	
+	 <scriptdef name="getProjectName" language="javascript">
+	     <attribute name="text" />
+	     <attribute name="property" />
+	     <![CDATA[
+	       var text = attributes.get("text");
+	       project.setProperty(attributes.get("property"), text.substring(text.lastIndexOf("/")+1));
+	     ]]>
+	  </scriptdef>
+
+	<scriptdef name="propertyreset" language="javascript"
+	    description="Allows to assign @{property} new value">
+	    <attribute name="name"/>
+	    <attribute name="value"/>
+	        project.setProperty(attributes.get("name"), attributes.get("value"));
+	</scriptdef>
+	
+</project>
