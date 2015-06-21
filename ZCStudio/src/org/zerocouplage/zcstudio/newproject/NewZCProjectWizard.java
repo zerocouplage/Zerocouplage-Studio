@@ -92,7 +92,7 @@ public class NewZCProjectWizard extends Wizard implements INewWizard
 //		"path rechérché", model.toString());
 //.....................................
 		try {
-			
+     
 			model.creatProject();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block

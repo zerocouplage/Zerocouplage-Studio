@@ -22,8 +22,6 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	
 	// widgets on this page
 	List exampleProjectList;
-;
-
 
 		
 	/**
@@ -35,15 +33,24 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 		setDescription("Select one of the available templates to generate a fully-functioning ZC project");
 	}
 	
-	//****************************************************
-//	 public boolean verifyZcProject(File project){
-//		  
-//	     String [] listefichiers; 
-//	     listefichiers =project.list();
-//	              
-// }
+	
+	//verify if file listed in settingsPage are projects
+	 public boolean verifyZcProject(File project){
+		  
+		          
+	        	   File [] Files =project.listFiles();
+	        	   for(File File : Files){
+	        		   
+	        		   if(File.getName().equals(".project")){
+	        			   return true;
+	        		   }
+	        	   }
+   
+	           
+	    return false;
+ }
 	 
-
+//list content of examples directory
 	 public void listerRepertoire(String pathname){ 
 
 	      // construction d'un fichier sur ce répertoire
@@ -56,17 +63,18 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	         // cette interface n'a qu'une unique méthode
 	        
 	        	 for (File project : projects) {
-	        		 if(project.isDirectory()){
+	        		
+	        		 if(project.isDirectory() && verifyZcProject(project)){
 	        			 String fileName = project.getName();
 	        			 exampleProjectList.add(fileName);
-	        			 
+	        		 }
 	  			   }
 	        		 
 	  			
 
-	        	 }
+	        	 
 	         }
-	//***************************************************
+
 
 	/**
 	 * @see IDialogPage#createControl(Composite)

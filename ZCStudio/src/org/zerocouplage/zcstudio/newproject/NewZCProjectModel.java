@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 //import org.eclipse.ui.wizards.datatransfer.ImportOperation;
 
 
@@ -45,13 +47,20 @@ GetProjectLocation cp=new GetProjectLocation();
 
 		cp.copy(projectName,selectedExample);
 		//Programmatically import the project into Eclipse		
-
+		
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-
-				project.create(null);
+        
+        //if the project already exist it doesn't be create 
+        if (!project.exists()) {
 			
+				project.create(null);
+        
 				project.open(null);
-	}			    
+	                         }			   
+      
+	}
+	
+	
 }
 
 			
