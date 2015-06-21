@@ -1,6 +1,9 @@
 package org.zerocouplage.zcstudio.newproject;
 
-import org.eclipse.jface.dialogs.IDialogPage; 
+import java.io.File;
+import java.io.FileFilter;
+
+import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -19,23 +22,51 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	
 	// widgets on this page
 	List exampleProjectList;
-	//Combo seatCombo;	
-	//Button priceButton;
+;
 
-	final static float standardPrice = 100;
-	//final static String[] seatChoices = {"Window", "Aisle", "Center"};
-	final static double discountRate = 0.9;
 
-	float price = standardPrice;
 		
 	/**
-	 * Constructor for PlanePage.
+	 * Constructor for NewZCProjectSettingsPage.
 	 */
 	protected NewZCProjectSettingsPage(String arg0) {
 		super(arg0);
 		setTitle("Templates");
 		setDescription("Select one of the available templates to generate a fully-functioning ZC project");
 	}
+	
+	//****************************************************
+//	 public boolean verifyZcProject(File project){
+//		  
+//	     String [] listefichiers; 
+//	     listefichiers =project.list();
+//	              
+// }
+	 
+
+	 public void listerRepertoire(String pathname){ 
+
+	      // construction d'un fichier sur ce répertoire
+	     File repFile =  new File(pathname) ;
+
+	      // filtrage du contenu de ce répertoire
+	      // on passe en paramètre une instance de classe anonyme
+	     File [] projects = repFile.listFiles() ;
+
+	         // cette interface n'a qu'une unique méthode
+	        
+	        	 for (File project : projects) {
+	        		 if(project.isDirectory()){
+	        			 String fileName = project.getName();
+	        			 exampleProjectList.add(fileName);
+	        			 
+	  			   }
+	        		 
+	  			
+
+	        	 }
+	         }
+	//***************************************************
 
 	/**
 	 * @see IDialogPage#createControl(Composite)
@@ -100,20 +131,14 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener
 	private void saveDataToModel()
 	{
 		NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
+		wizard.model.selectedExample = exampleProjectList.getSelection()[0];
 		wizard.creationCompleted = true;
 	}	
 
 	void onEnterPage()
 	{
-	    // Gets the model
-	    NewZCProjectWizard wizard = (NewZCProjectWizard)getWizard();
-		NewZCProjectModel model = wizard.model;
-		
-		String data = model.projectName;
-		// arbitrary values
-		String myProjectName ="project name :"+ data;
-
-			exampleProjectList.add(myProjectName);
+		exampleProjectList.removeAll();
+		listerRepertoire(GetProjectLocation.ZCSDK+"\\examples");
 
 	}
 }

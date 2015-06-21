@@ -37,16 +37,16 @@ public  class GetProjectLocation implements IHandler {
   
          
 	// standard Java I/O means to copy an existing example project
-	public void copy(String projectName) throws IOException{
-	   
+	public void copy(String projectName,String selectedProject) throws IOException{
+	    
 		   
 		   //work space location
 			IWorkspace workspace = ResourcesPlugin.getWorkspace();
 			File workspaceDirectory = workspace.getRoot().getLocation().toFile();
 			
-			
+			NewZCProjectWizard wizard = new NewZCProjectWizard();
 			//copy the existing project example from SDK to the workspace of eclipse 
-			java.nio.file.Path source =Paths.get(ZCSDK+"\\Douaae");
+			java.nio.file.Path source =Paths.get(ZCSDK+"\\examples\\"+selectedProject);
 		    java.nio.file.Path target =Paths.get(workspaceDirectory+"\\"+projectName);
 		    Files.walkFileTree(source, EnumSet.of(FileVisitOption.FOLLOW_LINKS),
 			          Integer.MAX_VALUE, new CopyDirectory(source, target));

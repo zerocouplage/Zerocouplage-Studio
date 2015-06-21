@@ -20,6 +20,8 @@ public class NewZCProjectModel
 	
 	// Project Name
 	protected String projectName;
+	// New Project Selection
+	protected String selectedExample;
 	
 	// choice of JRE
 	protected boolean executionJRE;
@@ -28,23 +30,20 @@ GetProjectLocation cp=new GetProjectLocation();
 	// flag is set if a folder called Discounts is selected 
 	// when the wizard is started; a discount is offered in this case
 	boolean discounted = false;	
-
+//.........................
 //	public String toString()
 //	{
-//	String s= "pr le test";
-//	IWorkspace workspace = ResourcesPlugin.getWorkspace();
-//
-//	String workspaceDirectory = workspace.getRoot().getLocation().toFile().toString();
+//	
 //
 //
-//	return workspaceDirectory;
+//	return selectedExample;
 //			
 //	}
-	
+	//..................................
 //Crean an empty  project 	
-	public void creatEmptyProject() throws CoreException, IOException{
+	public void creatProject() throws CoreException, IOException{
 
-		cp.copy(projectName);
+		cp.copy(projectName,selectedExample);
 		//Programmatically import the project into Eclipse		
 
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);

@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
@@ -27,6 +28,7 @@ public class NewZCProjectWizard extends Wizard implements INewWizard
 	// the model
 
 	NewZCProjectModel model;
+	
 	
 	// workbench selection when the wizard was started
 	protected IStructuredSelection selection;
@@ -77,17 +79,21 @@ public class NewZCProjectWizard extends Wizard implements INewWizard
 		// cannot complet the wizard from the first page
 		if (this.getContainer().getCurrentPage() == newZCProjectPage) 
 			return false;
-		return true;  //return false;
+		 if (settingsPage.isPageComplete())
+		    return true;
+		 return false;
 	}
 	
 	public boolean performFinish() 
 	{
-//		String summary = model.toString();
+		//....................................
+	//	String summary = model.toString();
 //		MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), 
-//		"path rechérché", summary);
-
+//		"path rechérché", model.toString());
+//.....................................
 		try {
-			model.creatEmptyProject();
+			
+			model.creatProject();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
