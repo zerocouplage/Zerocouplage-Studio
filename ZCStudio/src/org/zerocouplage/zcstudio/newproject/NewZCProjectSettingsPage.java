@@ -64,7 +64,7 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener {
 		File[] Files = project.listFiles();
 		for (File File : Files) {
 
-			if (File.getName().equals(".project")) {
+			if (File.getName().equals(".ZCProject")) {
 				return true;
 			}
 		}

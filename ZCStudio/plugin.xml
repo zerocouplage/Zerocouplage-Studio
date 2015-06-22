@@ -5,7 +5,7 @@
 <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="preference.MyInitializer">
+            class="org.zerocouplage.zcstudio.preference.MyInitializer">
       </initializer>
    </extension>
 <!-- add preferences pages-->
