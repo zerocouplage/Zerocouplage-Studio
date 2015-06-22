@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+<!-- preferences initialiser-->
 <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
             class="preference.MyInitializer">
       </initializer>
    </extension>
-<extension
-point="org.eclipse.ui.preferencePages">
+<!-- add preferences pages-->
+<extension point="org.eclipse.ui.preferencePages">
 
-<page
-id="pagepreference.ZeroCouplage"
-name="ZeroCouplage"
-
-class="org.zerocouplage.zcstudio.preference.MainPreferencePage">
-</page>
-<page
-id="pagepreference.ZeroCouplage.Desktop"
-name="Desktop"
-class="org.zerocouplage.zcstudio.preference.DesktopPreferencePage"
-category="pagepreference.ZeroCouplage">
-</page>
-<page
-id="pagepreference.ZeroCouplage.Web"
-name="Web"
-class="org.zerocouplage.zcstudio.preference.WebPreferencePage"
-category="pagepreference.ZeroCouplage">
-</page>
-<page
-id="pagepreference.ZeroCouplage.Mobile"
-name="Mobile"
-class="org.zerocouplage.zcstudio.preference.MobilePreferencePage"
-category="pagepreference.ZeroCouplage">
-</page>
-</extension>
+         <page 
+           id="pagepreference.ZeroCouplage" 
+           name="ZeroCouplage"
+           class="org.zerocouplage.zcstudio.preference.MainPreferencePage">
+           </page>
+         <page
+           id="pagepreference.ZeroCouplage.Desktop"
+           name="Desktop"
+           class="org.zerocouplage.zcstudio.preference.DesktopPreferencePage"
+           category="pagepreference.ZeroCouplage">
+         </page>
+         <page
+             id="pagepreference.ZeroCouplage.Web"
+             name="Web"
+             class="org.zerocouplage.zcstudio.preference.WebPreferencePage"
+             category="pagepreference.ZeroCouplage">
+         </page>
+         <page
+             id="pagepreference.ZeroCouplage.Mobile"
+             name="Mobile"
+             class="org.zerocouplage.zcstudio.preference.MobilePreferencePage"
+             category="pagepreference.ZeroCouplage">
+         </page>
+  </extension>
 <!--Run/ debug as Mobile-->
  <extension point="org.eclipse.debug.ui.launchShortcuts">
   <shortcut
@@ -46,12 +46,12 @@ category="pagepreference.ZeroCouplage">
     description="Launch a local Java application"
     id="org.eclipse.jdt.debug.ui.localJavaShortcut">
     <description
-     description="Runs a ZCMobile application"
-     mode="run">
+         description="Runs a ZCMobile application"
+         mode="run">
     </description>
     <description
-     description="Debugs a ZCMobile application"
-     mode="debug">
+         description="Debugs a ZCMobile application"
+         mode="debug">
     </description>
   <contextualLaunch>
   <enablement>
@@ -244,35 +244,7 @@ category="pagepreference.ZeroCouplage">
       </action>
    </objectContribution>
 </extension>
-<extension
-      point="org.eclipse.jdt.core.classpathContainerInitializer">
-</extension>
-<extension
-      point="org.eclipse.jdt.core.classpathContainerInitializer">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.classpathProviders">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.vmInstallTypes">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.vmInstalls">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.vmConnectors">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.runtimeClasspathEntryResolvers">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.runtimeClasspathEntries">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.executionEnvironments">
-</extension>
-<extension
-      point="org.eclipse.jdt.launching.classpathProviders">
-</extension>
+
+
  
 </plugin>
