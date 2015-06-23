@@ -13,22 +13,24 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ISelectionService;
 import org.zerocouplage.zcstudio.Activator;
 import org.zerocouplage.zcstudio.webLauncherAction.LaunchWebApp;
+
 /**
  * 
- * @author najlae
- *This class is associated with the run/debug as ZCDesktop shortcut
- *When running the project it shows a messageBox
- *Need to be done : Associate this class with an ant script that runs/debugs mobile application
- *The script is ready and the class which calls it too (org.zerocouplage.zcstudio.webLauncherAction.LaunchWebApp)
+ * @author najlae This class is associated with the run/debug as ZCDesktop
+ *         shortcut When running the project it shows a messageBox Need to be
+ *         done : Associate this class with an ant script that runs/debugs
+ *         mobile application The script is ready and the class which calls it
+ *         too (org.zerocouplage.zcstudio.webLauncherAction.LaunchWebApp)
  */
 public class zcwebAction implements ILaunchShortcut {
 	Shell shell = new Shell();
-	String [] args;
-	public zcwebAction()  {
+	String[] args;
+
+	public zcwebAction() {
 		// TODO Auto-generated constructor stub
 		System.out.println("Ok ZCWeb");
 	}
-	
+
 	protected static String sampleGetSelectedProject() {
 		ISelectionService ss = Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getSelectionService();
@@ -49,9 +51,11 @@ public class zcwebAction implements ILaunchShortcut {
 			return null;
 
 	}
+
 	/**
-	 * The main action of the Class
-	 * the asscociation with the ANT script is done here
+	 * The main action of the Class the asscociation with the ANT script is done
+	 * here
+	 * 
 	 * @see LaunchWebApp.main(args)
 	 * 
 	 */
@@ -59,19 +63,20 @@ public class zcwebAction implements ILaunchShortcut {
 	public void launch(ISelection arg0, String arg1) {
 		// TODO Auto-generated method stub
 		System.out.println("Ok launch");
-		MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
-		dialog.setText("ZCMobile Running Application");
-		dialog.setMessage("You choosed to run/debug ---- "+sampleGetSelectedProject()+" ---- as a Web Application");
+		MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK
+				| SWT.CANCEL);
+		dialog.setText("ZCWeb Running Application");
+		dialog.setMessage("You choosed to run/debug ---- "
+				+ sampleGetSelectedProject() + " ---- as a Web Application");
 		dialog.open();
 		LaunchWebApp.main(args);
 
-		
 	}
 
 	@Override
 	public void launch(IEditorPart arg0, String arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

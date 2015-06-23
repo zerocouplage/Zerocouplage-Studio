@@ -17,20 +17,23 @@ import org.zerocouplage.zcstudio.webLauncherAction.LaunchWebApp;
 
 /**
  * 
- * @author najlae
- *This class is associated with the run/debug as ZCDesktop shortcut
- *When running the project it shows a messageBox
- *Need to be done : Associate this class with an ant script that runs/debugs mobile application
- *The script is ready and the class which calls it too (org.zerocouplage.zcstudio.desktopLauncherAction.LaunchDesktopApp)
+ * @author najlae This class is associated with the run/debug as ZCDesktop
+ *         shortcut When running the project it shows a messageBox Need to be
+ *         done : Associate this class with an ant script that runs/debugs
+ *         mobile application The script is ready and the class which calls it
+ *         too
+ *         (org.zerocouplage.zcstudio.desktopLauncherAction.LaunchDesktopApp)
  */
 public class zcdesktopAction implements ILaunchShortcut {
 
 	Shell shell = new Shell();
-	String [] args;
-	public zcdesktopAction()  {
+	String[] args;
+
+	public zcdesktopAction() {
 		// TODO Auto-generated constructor stub
 		System.out.println("Ok ZCDesktop");
 	}
+
 	/**
 	 * @return the name of the selected project
 	 */
@@ -54,9 +57,11 @@ public class zcdesktopAction implements ILaunchShortcut {
 			return null;
 
 	}
+
 	/**
-	 * The main action of the Class
-	 * the asscociation with the ANT script is done here
+	 * The main action of the Class the asscociation with the ANT script is done
+	 * here
+	 * 
 	 * @see LaunchDesktopApp.main(args)
 	 * 
 	 */
@@ -64,21 +69,20 @@ public class zcdesktopAction implements ILaunchShortcut {
 	public void launch(ISelection arg0, String arg1) {
 		// TODO Auto-generated method stub
 		System.out.println("Ok launch");
-		MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
-		dialog.setText("ZCMobile Running Application");
-		dialog.setMessage("You choosed to run/debug ---- "+sampleGetSelectedProject()+" ---- as a Desktop Application");
+		MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK
+				| SWT.CANCEL);
+		dialog.setText("ZCDesktop Running Application");
+		dialog.setMessage("You choosed to run/debug ---- "
+				+ sampleGetSelectedProject() + " ---- as a Desktop Application");
 		dialog.open();
 		LaunchDesktopApp.main(args);
 
-		
 	}
 
 	@Override
 	public void launch(IEditorPart arg0, String arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
-
-
 
 }
