@@ -125,7 +125,8 @@ public class NewZCProjectSettingsPage extends WizardPage implements Listener {
 		wizard.creationCompleted = true;
 	}
 
-	// first method on the wizard
+	// first method on the wizard 
+	//import names of  existing project examples on the example folder of the SDK
 	void onEnterPage() {
 		exampleProjectList.removeAll();
 		listerRepertoire(GetProjectLocation.ZCSDK + "\\examples");

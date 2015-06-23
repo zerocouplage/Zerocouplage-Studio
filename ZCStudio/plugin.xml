@@ -212,7 +212,7 @@
 
 <extension id="wizard"
     name="new zc project "
-   point="org.eclipse.ui.newWizards">
+   point="org.eclipse.ui.newWizards">  <!--pr ajouter ZC a File-> New -> Project -->
   <category
          name="ZeroCouplage"
          id="ZeroCouplage.category1">
@@ -220,10 +220,10 @@
    <wizard
          name="ZC project"
          icon="icons/ZCIcon.png"
-         project="true"
+         project="true"   
          category="ZeroCouplage.category1"
    		 class="org.zerocouplage.zcstudio.newproject.NewZCProjectWizard"
-         id="wizard.wizard1">
+         id="wizard.wizard1"> <!--project="true" :pr ajouter ZC a File- New -Project -->
         <description>
                new zerocouplage project
         </description>
@@ -231,20 +231,6 @@
 </extension>
 
 
-<extension
-      point="org.eclipse.ui.popupMenus">
-   <objectContribution
-         objectClass="org.eclipse.core.resources.IFolder"
-         id="com.xyz.article.wizards.popup1">
-      <action
-            label="Your New ZC Project"
-            icon="icons/action.gif"
-            class="org.zerocouplage.zcstudio.newproject.NewZCProjectAction"
-            id="wizard.action1">
-      </action>
-   </objectContribution>
-</extension>
 
 
- 
 </plugin>

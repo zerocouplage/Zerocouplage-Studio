@@ -8,6 +8,13 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
+
+
+
+/**
+ * @author Doaae K
+ *
+ */
 class CopyDirectory extends SimpleFileVisitor<Path> {
 
 	private Path source;
@@ -17,10 +24,14 @@ class CopyDirectory extends SimpleFileVisitor<Path> {
 		this.source = source;
 		this.target = target;
 	}
-
+      
+	/* (non-Javadoc)
+	 * @see java.nio.file.SimpleFileVisitor#visitFile(java.lang.Object, java.nio.file.attribute.BasicFileAttributes)
+	 */
 	@Override
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attributes)
 			throws IOException {
+		//afficher la traitement effectuer au log
 		System.out.println("Copying " + source.relativize(file));
 		Files.copy(file, target.resolve(source.relativize(file)));
 		return FileVisitResult.CONTINUE;
