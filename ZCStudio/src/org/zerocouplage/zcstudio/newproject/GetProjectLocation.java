@@ -33,7 +33,7 @@ public class GetProjectLocation implements IHandler {
 	public static String tomcat = prefStore
 			.getString(PreferenceConstants.ZCWeb);
 
-	// copy an example projectfrom the SDK to the workspace and rename it
+	// copy an example project from the SDK to the workspace and rename it
 	public void copyExampleToWorkspace(String projectName,
 			String selectedProject) throws IOException {
 
