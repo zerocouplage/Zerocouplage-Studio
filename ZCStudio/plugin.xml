@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<!-- preferences initialiser-->
+<extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.zerocouplage.zcstudio.preference.MyInitializer">
+      </initializer>
+   </extension>
+<!-- add preferences pages-->
+<extension point="org.eclipse.ui.preferencePages">
+
+         <page 
+           id="pagepreference.ZeroCouplage" 
+           name="ZeroCouplage"
+           class="org.zerocouplage.zcstudio.preference.MainPreferencePage">
+           </page>
+         <page
+           id="pagepreference.ZeroCouplage.Desktop"
+           name="Desktop"
+           class="org.zerocouplage.zcstudio.preference.DesktopPreferencePage"
+           category="pagepreference.ZeroCouplage">
+         </page>
+         <page
+             id="pagepreference.ZeroCouplage.Web"
+             name="Web"
+             class="org.zerocouplage.zcstudio.preference.WebPreferencePage"
+             category="pagepreference.ZeroCouplage">
+         </page>
+         <page
+             id="pagepreference.ZeroCouplage.Mobile"
+             name="Mobile"
+             class="org.zerocouplage.zcstudio.preference.MobilePreferencePage"
+             category="pagepreference.ZeroCouplage">
+         </page>
+  </extension>
+<!--Run/ debug as Mobile-->
+ <extension point="org.eclipse.debug.ui.launchShortcuts">
+  <shortcut
+    label="ZCMobile Application"
+    icon="icons/ZCIcon.png"
+    helpContextId="org.eclipse.jdt.debug.ui.shortcut_local_java_application"
+    modes="run, debug"
+    class="org.zerocouplage.zcstudio.shortcuts.zcmobileAction"
+    description="Launch a local Java application"
+    id="org.eclipse.jdt.debug.ui.localJavaShortcut">
+    <description
+         description="Runs a ZCMobile application"
+         mode="run">
+    </description>
+    <description
+         description="Debugs a ZCMobile application"
+         mode="debug">
+    </description>
+  <contextualLaunch>
+  <enablement>
+    <with variable="selection">
+     <count value="1"/>
+      <iterate>
+       <or>
+        <test property="org.eclipse.jdt.launching.hasMain"/>
+         <and>
+          <test property="org.eclipse.jdt.launching.isContainer"/>
+          <test property="org.eclipse.jdt.launching.hasProjectNature" args="org.eclipse.jdt.core.javanature"/>
+         </and>
+        </or>
+      </iterate>
+     </with>
+  </enablement>
+  </contextualLaunch>
+  <configurationType
+    id="org.eclipse.jdt.launching.localJavaApplication">
+  </configurationType>
+  </shortcut>
+</extension>
+<!--Run/ debug as Web-->
+ <extension point="org.eclipse.debug.ui.launchShortcuts">
+  <shortcut
+    label="ZCWeb Application"
+    icon="icons/ZCIcon.png"
+    helpContextId="org.eclipse.jdt.debug.ui.shortcut_local_java_application"
+    modes="run, debug"
+    class="org.zerocouplage.zcstudio.shortcuts.zcwebAction"
+    description="Launch a local Java application"
+    id="org.eclipse.jdt.debug.ui.localJavaShortcut">
+    <description
+     description="Runs a ZCWeb application"
+     mode="run">
+    </description>
+    <description
+     description="Debugs ZCWeb application"
+     mode="debug">
+    </description>
+  <contextualLaunch>
+  <enablement>
+    <with variable="selection">
+     <count value="1"/>
+      <iterate>
+       <or>
+        <test property="org.eclipse.jdt.launching.hasMain"/>
+         <and>
+          <test property="org.eclipse.jdt.launching.isContainer"/>
+          <test property="org.eclipse.jdt.launching.hasProjectNature" args="org.eclipse.jdt.core.javanature"/>
+         </and>
+        </or>
+      </iterate>
+     </with>
+  </enablement>
+  </contextualLaunch>
+  <configurationType
+    id="org.eclipse.jdt.launching.localJavaApplication">
+  </configurationType>
+  </shortcut>
+</extension>
+<!--Run/ debug as Desktop-->
+ <extension point="org.eclipse.debug.ui.launchShortcuts">
+  <shortcut
+    label="ZCDesktop Application"
+    icon="icons/ZCIcon.png"
+    helpContextId="org.eclipse.jdt.debug.ui.shortcut_local_java_application"
+    modes="run, debug"
+    class="org.zerocouplage.zcstudio.shortcuts.zcdesktopAction"
+    description="Launch a local Java application"
+    id="org.eclipse.jdt.debug.ui.localJavaShortcut">
+    <description
+     description="Runs a ZCDesktop application"
+     mode="run">
+    </description>
+    <description
+     description="Debugs a ZCDesktop application"
+     mode="debug">
+    </description>
+  <contextualLaunch>
+  <enablement>
+    <with variable="selection">
+     <count value="1"/>
+      <iterate>
+       <or>
+        <test property="org.eclipse.jdt.launching.hasMain"/>
+         <and>
+          <test property="org.eclipse.jdt.launching.isContainer"/>
+          <test property="org.eclipse.jdt.launching.hasProjectNature" args="org.eclipse.jdt.core.javanature"/>
+         </and>
+        </or>
+      </iterate>
+     </with>
+  </enablement>
+  </contextualLaunch>
+  <configurationType
+    id="org.eclipse.jdt.launching.localJavaApplication">
+  </configurationType>
+  </shortcut>
+</extension>
+<!--Export as Mobile-->
+<extension 
+       point="org.eclipse.ui.exportWizards"> 
+       <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
+      <wizard 
+         id="org.zerocouplage.zcstudio.ExportZCMobileApp" 
+         name="ZCMobile Application" 
+         class="org.zerocouplage.zcstudio.exports.ExportZCApp" 
+         icon="icons/ZCIcon.png"> 
+         <description> 
+            A simple engine that exports ZCMobile project 
+         </description> 
+         <selection class="org.eclipse.core.resources.IProject"/> 
+      </wizard> 
+   </extension>
+<!--Export as Web-->
+   <extension 
+       point="org.eclipse.ui.exportWizards"> 
+       <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
+      <wizard 
+         id="org.zerocouplage.zcstudio.ExportZCWebApp" 
+         name="ZCWeb Application" 
+         class="org.zerocouplage.zcstudio.exports.ExportZCApp" 
+         icon="icons/ZCIcon.png"> 
+         <description> 
+            A simple engine that exports Web project 
+         </description> 
+         <selection class="org.eclipse.core.resources.IProject"/> 
+      </wizard> 
+   </extension>
+<!--Export as Desktop-->
+   <extension 
+       point="org.eclipse.ui.exportWizards"> 
+       <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
+      <wizard 
+         id="org.zerocouplage.zcstudio.ExportZCDesktopApp" 
+         name="ZCDesktop Application" 
+         class="org.zerocouplage.zcstudio.exports.ExportZCApp" 
+        
+         icon="icons/ZCIcon.png"> 
+         <description> 
+            A simple engine that exports Desktop project 
+         </description> 
+         <selection class="org.eclipse.core.resources.IProject"/> 
+      </wizard> 
+   </extension>
+
+<!-- new project -->
+
+<extension id="wizard"
+    name="new zc project "
+   point="org.eclipse.ui.newWizards">  <!--pr ajouter ZC a File-> New -> Project -->
+  <category
+         name="ZeroCouplage"
+         id="ZeroCouplage.category1">
+   </category>
+   <wizard
+         name="ZC project"
+         icon="icons/ZCIcon.png"
+         project="true"   
+         category="ZeroCouplage.category1"
+   		 class="org.zerocouplage.zcstudio.newproject.NewZCProjectWizard"
+         id="wizard.wizard1"> <!--project="true" :pr ajouter ZC a File- New -Project -->
+        <description>
+               new zerocouplage project
+        </description>
+   </wizard>
+</extension>
+
+
+
+
+</plugin>
